@@ -1,17 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { getHeroById } from './bases/08-imp-exp'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//const promesa = new Promise( (resolve, reject)=>{
+
+//setTimeout(()=>{
+
+    //console.log('2 segundos despues');
+   
+//const heroe = getHeroById(2);
+////console.log(heroe);
+//resolve(heroe);
+//}, 2000)
+//
+//});
+//
+//promesa.then((heroe)=>{
+//    console.log('El heroe es ', heroe);
+//})
+
+//.catch(err=> console.warn( err));
+
+const getHeroByIdAsync = ( id )=>{
+ 
+    return new Promise( (resolve, reject)=>{
+
+        setTimeout(()=>{
+        
+            //console.log('2 segundos despues');
+           
+        const heroe = getHeroById(id);
+        //console.log(heroe);
+        resolve(heroe);
+        }, 2000)
+        
+        });
+
+    }
+
+getHeroByIdAsync(4)
+    .then( heroe => console.log( "Heroe", heroe));
